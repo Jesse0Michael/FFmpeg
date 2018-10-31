@@ -194,7 +194,7 @@ static int cache_read(URLContext *h, unsigned char *buf, int size)
     if (c->logical_pos != c->inner_pos) {
         r = ffurl_seek(c->inner, c->logical_pos, SEEK_SET);
         if (r<0) {
-            av_log(h, AV_LOG_ERROR, "Failed to perform internal seek\n");
+            av_log(h, AV_LOG_WARNING, "Failed to perform internal seek\n");
             return r;
         }
         c->inner_pos = r;
